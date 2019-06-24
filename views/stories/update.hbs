@@ -1,0 +1,133 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+
+    {{> nav-bars}}
+
+</nav>
+
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    {{>sidebar}}
+
+    <div id="content-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Dashboard</a>
+                </li>
+                <li class="breadcrumb-item active">{{pageTitle}}</li>
+            </ol>
+
+
+            <!-- Page Content -->
+
+            <div class="modal-body">
+                <div class="row content">
+                    <div class="col-sm-12">
+                        <form method="POST" action="" class="form-horizontal">
+                            <div class="panel panel-success">
+                                <div class="panel-heading" style="font-size: 25px;font-weight: bold; background-color: rgb(28, 188, 156);color: white">Thêm mới truyện</div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="name" class="col-md-4 control-label">Tên truyện</label>
+                                                <div class="col-md-12">
+                                                    <input value="{{story.name}}" type="text" class="form-control" id="name" name="name" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="author" class="col-md-4 control-label">Tác giả</label>
+                                                <div class="col-md-8">
+                                                    <select class="col-md-12 form-control" name="author">
+                                                        {{#each authorList}}
+                                                            <option value={{this._id}}>{{this.name}}</option>
+                                                        {{/each}}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="finished" class="col-md-4 control-label">Tình trạng</label>
+                                                <div class="col-md-8">
+                                                    <select class="col-md-12 form-control" name="finished">
+                                                        <option value="Hoàn thành">Hoàn thành</option>
+                                                        <option value="Chưa hoàn thành">Chưa hoàn thành</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="genre" class="col-md-4 control-label">Thể loại</label>
+                                                <div class="col-md-8">
+                                                    <select class="col-md-12 form-control" id="exampleFormControlSelect1" name="genre">
+                                                        {{#each genreList}}
+                                                            <option value={{this._id}}>{{this.name}}</option>
+                                                        {{/each}}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="info" class="col-md-4 control-label">Mô Tả</label>
+                                                <div class="col-md-8">
+                                                    <textarea id="mt" cols="110" rows="8" name="info" required>{{story.info}}</textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="file" class="col-md-4 control-label">Hình Ảnh</label>
+                                                <div class="col-md-8">
+                                                    <input type="file" accept="image/*" class="form-control" id="file" name="img" required onchange="readURL(this);">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-footer">
+                                    <div class="row">
+                                        <button type="submit" class="btn btn-success">Cập nhật</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+
+        <!-- Sticky Footer -->
+        <footer class="sticky-footer">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright © Your Website 2019</span>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+{{> js }}
